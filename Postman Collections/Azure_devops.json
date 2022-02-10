@@ -24,13 +24,15 @@
                   "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
                   "});\r",
                   "\r",
-                  ""
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
                 ],
                 "type": "text/javascript"
               }
             }
           ],
-          "_postman_id": "bdaa5bde-05e8-43ef-acd0-3dd82292b270",
+          "id": "bdaa5bde-05e8-43ef-acd0-3dd82292b270",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
@@ -72,7 +74,7 @@
               }
             }
           ],
-          "_postman_id": "1803545a-d4d7-4aba-a899-0874ac99aa5c",
+          "id": "1803545a-d4d7-4aba-a899-0874ac99aa5c",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
@@ -99,7 +101,7 @@
           "response": []
         }
       ],
-      "_postman_id": "009f8c40-9c34-4168-a122-1cf8e933f5fb"
+      "id": "009f8c40-9c34-4168-a122-1cf8e933f5fb"
     },
     {
       "name": "POST",
@@ -124,7 +126,7 @@
               }
             }
           ],
-          "_postman_id": "4f5b35fa-f37f-497d-a698-7db41e1019a4",
+          "id": "4f5b35fa-f37f-497d-a698-7db41e1019a4",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
@@ -160,7 +162,7 @@
           "response": []
         }
       ],
-      "_postman_id": "cc53076f-25b7-4cb9-95ba-a097df55b7c2"
+      "id": "cc53076f-25b7-4cb9-95ba-a097df55b7c2"
     }
   ],
   "event": [
@@ -187,10 +189,9 @@
   ],
   "variable": [
     {
-      "id": "66260a76-b9f0-4cd3-acf1-837d25238108",
+      "id": "5d03a0bf-288c-4552-bfc7-b81e9d888991",
       "key": "baseurl",
-      "value": "https://reqres.in",
-      "type": "string"
+      "value": "https://reqres.in"
     }
   ]
 }
