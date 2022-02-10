@@ -1,0 +1,196 @@
+{
+  "info": {
+    "_postman_id": "f717e3f3-0924-4c53-96fc-997d1d8d517b",
+    "name": "demo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET",
+      "item": [
+        {
+          "name": "fetch-user details",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "3ab76a2d-8d29-4e1a-96bf-19c8bef77212",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2000ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "bdaa5bde-05e8-43ef-acd0-3dd82292b270",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseurl}}/api/users?page=2",
+              "host": [
+                "{{baseurl}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b5ac2323-ed1b-4017-8015-511d37de8364",
+                "exec": [
+                  "pm.test(\"Body matches string Tobias\", function () {\r",
+                  "    pm.expect(pm.response.text()).to.include(\"Tobias\");\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "1803545a-d4d7-4aba-a899-0874ac99aa5c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseurl}}/api/users?page=2",
+              "host": [
+                "{{baseurl}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "009f8c40-9c34-4168-a122-1cf8e933f5fb"
+    },
+    {
+      "name": "POST",
+      "item": [
+        {
+          "name": "added user",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "52634742-b641-4b2c-85fc-f79d6ae54562",
+                "exec": [
+                  "pm.test(\"Response time is less than 1000ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Successful POST request\", function () {\r",
+                  "    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "4f5b35fa-f37f-497d-a698-7db41e1019a4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": " {\r\n            \"id\": 12,\r\n            \"email\": \"abc.funke@reqres.in\",\r\n            \"first_name\": \"nts\",\r\n            \"last_name\": \"pune\",\r\n            \"avatar\": \"https://reqres.in/img/faces/9-image.jpg\"\r\n        }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseurl}}/api/users?page=2",
+              "host": [
+                "{{baseurl}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "cc53076f-25b7-4cb9-95ba-a097df55b7c2"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "9986e6fc-3707-4e5a-a521-7ecfd854e2a0",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "b20c0f1b-443d-4bae-833e-d52127e03528",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "66260a76-b9f0-4cd3-acf1-837d25238108",
+      "key": "baseurl",
+      "value": "https://reqres.in",
+      "type": "string"
+    }
+  ]
+}
